@@ -30,7 +30,7 @@ class GetQuoteRequest extends AbstractRequest
 
     public function buildLocation($tag, $country_code, $postal_code=null, $city=null)
     {
-        $data = array('CountryCode' => $country_code, 'PostalCode' => $postal_code, 'City' => $city);
+        $data = array('CountryCode' => $country_code, 'Postalcode' => $postal_code, 'City' => $city);
         $location = $this->buildElement($tag, $data);
 
         $this->currentRoot->appendChild($location);
@@ -54,7 +54,8 @@ class GetQuoteRequest extends AbstractRequest
             $data['Pieces']['Piece'][] = array('PieceID' => $piece_id,
                 'Height' => $piece_data['height'],
                 'Depth' => $piece_data['depth'],
-                'Width' => $piece_data['width']);
+                'Width' => $piece_data['width'],
+                'Weight' => $piece_data['weight']);
             $piece_id++;
         }
 
