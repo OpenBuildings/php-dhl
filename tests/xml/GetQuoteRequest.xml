@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:DCTRequest xmlns:p="http://www.dhl.com" xmlns:p1="http://www.dhl.com/datatypes" xmlns:p2="http://www.dhl.com/DCTRequestdatatypes" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dhl.com DCT-req.xsd ">
+  <GetQuote>
+    <Request>
+      <ServiceHeader>
+        <SiteID>CIMGBTest</SiteID>
+        <Password>DLUntOcJma</Password>
+      </ServiceHeader>
+    </Request>
+    <From>
+      <CountryCode>ID</CountryCode>
+      <Postalcode>31251</Postalcode>
+      <City>PENDOPO</City>
+    </From>
+    <BkgDetails>
+      <PaymentCountryCode>ID</PaymentCountryCode>
+      <Date>2014-05-09</Date>
+      <ReadyTime>PT10H21M</ReadyTime>
+      <DimensionUnit>CM</DimensionUnit>
+      <WeightUnit>KG</WeightUnit>
+      <Pieces>
+        <Piece>
+          <PieceID>1</PieceID>
+          <Height>30</Height>
+          <Depth>20</Depth>
+          <Width>10</Width>
+          <Weight>1</Weight>
+        </Piece>
+      </Pieces>
+      <IsDutiable>N</IsDutiable>
+    </BkgDetails>
+    <To>
+      <CountryCode>JP</CountryCode>
+      <Postalcode>9811513</Postalcode>
+      <City>KAKUDA</City>
+    </To>
+  </GetQuote>
+</p:DCTRequest>

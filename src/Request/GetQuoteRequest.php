@@ -2,6 +2,11 @@
 
 namespace CL\PhpDhl\Request;
 
+/**
+ * @author    Danail Kyosev <ddkyosev@gmail.com>
+ * @copyright 2014, Clippings Ltd.
+ * @license   http://spdx.org/licenses/BSD-3-Clause
+ */
 class GetQuoteRequest extends AbstractRequest
 {
     protected function buildRoot()
@@ -28,7 +33,7 @@ class GetQuoteRequest extends AbstractRequest
         return $this;
     }
 
-    public function buildLocation($tag, $country_code, $postal_code=null, $city=null)
+    private function buildLocation($tag, $country_code, $postal_code=null, $city=null)
     {
         $data = array('CountryCode' => $country_code, 'Postalcode' => $postal_code, 'City' => $city);
         $location = $this->buildElement($tag, $data);
@@ -36,6 +41,16 @@ class GetQuoteRequest extends AbstractRequest
         $this->currentRoot->appendChild($location);
 
         return $this;
+    }
+
+    public function buildFrom($country_code, $postal_code=null, $city=null)
+    {
+        return $this->buildLocation('From', $country_code, $postal_code, $city);
+    }
+
+    public function buildTo($country_code, $postal_code=null, $city=null)
+    {
+        return $this->buildLocation('To', $country_code, $postal_code, $city);
     }
 
     public function buildBkgDetails($payment_country_code, $date, $ready_time, 

@@ -3,6 +3,7 @@
 namespace CL\PhpDhl\Request;
 
 use CL\PhpDhl\XMLSerializer;
+use CL\PhpDhl\Connection\DHLHttpConnection;
 
 /**
  * @author    Danail Kyosev <ddkyosev@gmail.com>
@@ -48,5 +49,13 @@ abstract class AbstractRequest
     protected function buildElement($name, $data=null)
     {
         return XMLSerializer::serialize($this->xml, $name, $data);
+    }
+
+    public function send()
+    {
+        $connection = new DHLHttpConnection();
+        $result = $connection->execute($this->xml->saveXML());
+
+        return $result;
     }
 }
