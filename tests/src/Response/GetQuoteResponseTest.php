@@ -20,4 +20,19 @@ class GetQuoteResponseTest extends AbstractTestCase
         $this->assertEquals('101.040', $price->getTotalAmount());
         $this->assertEquals('1.000', $price->getTotalTaxAmount());
     }
+
+    public function testNoPrice()
+    {
+        $xml = file_get_contents(dirname(__FILE__).'/../../xml/GetQuoteResponseNoPrice.xml');
+        $response = new GetQuoteResponse($xml);
+
+        $this->assertEquals(1, count($response->getPrices()));
+        $price = $response->getPrices()[0];
+        $this->assertEquals('EXPRESS WORLDWIDE', $price->getProductName());
+        $this->assertEmpty($price->getCurrencyCode());
+        $this->assertEmpty($price->getWeightCharge());
+        $this->assertEmpty($price->getWeightChargeTax());
+        $this->assertEmpty($price->getTotalAmount());
+        $this->assertEmpty($price->getTotalTaxAmount());
+    }
 }

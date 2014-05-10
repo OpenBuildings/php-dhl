@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<res:DCTResponse xmlns:res="http://www.dhl.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dhl.com DCT-Response.xsd">
+  <GetQuoteResponse>
+    <Response>
+      <ServiceHeader>
+        <MessageTime>2014-05-10T17:01:52.020+01:00</MessageTime>
+        <SiteID>CIMGBTest</SiteID>
+      </ServiceHeader>
+    </Response>
+    <BkgDetails>
+      <OriginServiceArea>
+        <FacilityCode>AND</FacilityCode>
+        <ServiceAreaCode>BRU</ServiceAreaCode>
+      </OriginServiceArea>
+      <DestinationServiceArea>
+        <FacilityCode>SOF</FacilityCode>
+        <ServiceAreaCode>SOF</ServiceAreaCode>
+      </DestinationServiceArea>
+      <QtdShp>
+        <GlobalProductCode>C</GlobalProductCode>
+        <LocalProductCode>C</LocalProductCode>
+        <ProductShortName>MEDICAL EXPRESS</ProductShortName>
+        <LocalProductName>MEDICAL EXPRESS</LocalProductName>
+        <NetworkTypeCode>TD</NetworkTypeCode>
+        <POfferedCustAgreement>Y</POfferedCustAgreement>
+        <TransInd>N</TransInd>
+        <PickupDate>2014-05-12</PickupDate>
+        <PickupCutoffTime>PT19H30M</PickupCutoffTime>
+        <BookingTime>PT18H</BookingTime>
+        <TotalTransitDays>1</TotalTransitDays>
+        <PickupPostalLocAddDays>0</PickupPostalLocAddDays>
+        <DeliveryPostalLocAddDays>0</DeliveryPostalLocAddDays>
+        <PickupNonDHLCourierCode> </PickupNonDHLCourierCode>
+        <DeliveryNonDHLCourierCode> </DeliveryNonDHLCourierCode>
+        <DeliveryDate>2014-05-13</DeliveryDate>
+        <DeliveryTime>PT23H59M</DeliveryTime>
+        <DimensionalWeight>1.200</DimensionalWeight>
+        <WeightUnit>KG</WeightUnit>
+        <PickupDayOfWeekNum>1</PickupDayOfWeekNum>
+        <DestinationDayOfWeekNum>2</DestinationDayOfWeekNum>
+      </QtdShp>
+      <QtdShp>
+        <GlobalProductCode>U</GlobalProductCode>
+        <LocalProductCode>U</LocalProductCode>
+        <ProductShortName>EXPRESS WORLDWIDE</ProductShortName>
+        <LocalProductName>EXPRESS WORLDWIDE EU</LocalProductName>
+        <NetworkTypeCode>TD</NetworkTypeCode>
+        <POfferedCustAgreement>N</POfferedCustAgreement>
+        <TransInd>Y</TransInd>
+        <PickupDate>2014-05-12</PickupDate>
+        <PickupCutoffTime>PT19H30M</PickupCutoffTime>
+        <BookingTime>PT18H</BookingTime>
+        <TotalTransitDays>1</TotalTransitDays>
+        <PickupPostalLocAddDays>0</PickupPostalLocAddDays>
+        <DeliveryPostalLocAddDays>0</DeliveryPostalLocAddDays>
+        <PickupNonDHLCourierCode> </PickupNonDHLCourierCode>
+        <DeliveryNonDHLCourierCode> </DeliveryNonDHLCourierCode>
+        <DeliveryDate>2014-05-13</DeliveryDate>
+        <DeliveryTime>PT23H59M</DeliveryTime>
+        <DimensionalWeight>1.200</DimensionalWeight>
+        <WeightUnit>KG</WeightUnit>
+        <PickupDayOfWeekNum>1</PickupDayOfWeekNum>
+        <DestinationDayOfWeekNum>2</DestinationDayOfWeekNum>
+      </QtdShp>
+      <QtdShp>
+        <GlobalProductCode>B</GlobalProductCode>
+        <LocalProductCode>B</LocalProductCode>
+        <ProductShortName>BREAK BULK EXPRESS</ProductShortName>
+        <LocalProductName>BREAK BULK EXPRESS</LocalProductName>
+        <NetworkTypeCode>TD</NetworkTypeCode>
+        <POfferedCustAgreement>Y</POfferedCustAgreement>
+        <TransInd>N</TransInd>
+        <PickupDate>2014-05-12</PickupDate>
+        <PickupCutoffTime>PT19H30M</PickupCutoffTime>
+        <BookingTime>PT18H</BookingTime>
+        <TotalTransitDays>2</TotalTransitDays>
+        <PickupPostalLocAddDays>0</PickupPostalLocAddDays>
+        <DeliveryPostalLocAddDays>0</DeliveryPostalLocAddDays>
+        <PickupNonDHLCourierCode> </PickupNonDHLCourierCode>
+        <DeliveryNonDHLCourierCode> </DeliveryNonDHLCourierCode>
+        <DeliveryDate>2014-05-14</DeliveryDate>
+        <DeliveryTime>PT23H59M</DeliveryTime>
+        <DimensionalWeight>1.200</DimensionalWeight>
+        <WeightUnit>KG</WeightUnit>
+        <PickupDayOfWeekNum>1</PickupDayOfWeekNum>
+        <DestinationDayOfWeekNum>3</DestinationDayOfWeekNum>
+      </QtdShp>
+    </BkgDetails>
+    <Srvs>
+      <Srv>
+        <GlobalProductCode>C</GlobalProductCode>
+        <MrkSrv>
+          <LocalProductCode>C</LocalProductCode>
+          <ProductShortName>MEDICAL EXPRESS</ProductShortName>
+          <LocalProductName>MEDICAL EXPRESS</LocalProductName>
+          <NetworkTypeCode>TD</NetworkTypeCode>
+          <POfferedCustAgreement>Y</POfferedCustAgreement>
+          <TransInd>N</TransInd>
+        </MrkSrv>
+      </Srv>
+      <Srv>
+        <GlobalProductCode>U</GlobalProductCode>
+        <MrkSrv>
+          <LocalProductCode>U</LocalProductCode>
+          <ProductShortName>EXPRESS WORLDWIDE</ProductShortName>
+          <LocalProductName>EXPRESS WORLDWIDE EU</LocalProductName>
+          <NetworkTypeCode>TD</NetworkTypeCode>
+          <POfferedCustAgreement>N</POfferedCustAgreement>
+          <TransInd>Y</TransInd>
+        </MrkSrv>
+      </Srv>
+      <Srv>
+        <GlobalProductCode>B</GlobalProductCode>
+        <MrkSrv>
+          <LocalProductCode>B</LocalProductCode>
+          <ProductShortName>BREAK BULK EXPRESS</ProductShortName>
+          <LocalProductName>BREAK BULK EXPRESS</LocalProductName>
+          <NetworkTypeCode>TD</NetworkTypeCode>
+          <POfferedCustAgreement>Y</POfferedCustAgreement>
+          <TransInd>N</TransInd>
+        </MrkSrv>
+      </Srv>
+    </Srvs>
+  </GetQuoteResponse>
+</res:DCTResponse>
