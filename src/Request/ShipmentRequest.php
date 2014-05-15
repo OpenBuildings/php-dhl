@@ -92,4 +92,37 @@ class ShipmentRequest extends AbstractRequest
         return $this;
     }
 
+    public function buildBilling($shipperAccountNumber, $shippingPaymentType)
+    {
+        $billing = new Partials\Billing();
+        $billing->setShipperAccountNumber($shipperAccountNumber)
+            ->setShippingPaymentType($shippingPaymentType);
+
+        return $this->setBilling($billing);
+    }
+
+    public function buildConsignee($companyName, $addressLine, $countryCode, $countryName, 
+        $contactName, $contactPhoneNumber)
+    {
+        $consignee = new Partials\Consignee();
+        $consignee->setCompanyName($companyName)
+            ->setAddressLine($addressLine)
+            ->setCountryCode($countryCode)
+            ->setCountryName($countryName);
+
+        $contact = new Partials\Contact();
+        $contact->setPersonName($contactName)
+            ->setPhoneNumber($contactPhoneNumber);
+
+        $consignee->setContact($contact);
+
+        return $this->setConsignee($consignee);
+    }
+
+    public function buildShipmentDetails(array $pieces, $globalProductCode, $date, 
+        $currencyCode, $weightUnit='K', $dimensionUnit='C')
+    {
+        // TODO
+    }
+
 }

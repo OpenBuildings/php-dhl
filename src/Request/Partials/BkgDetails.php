@@ -47,7 +47,7 @@ class BkgDetails extends RequestPartial
     }
 
     /**
-     * @param string $dimensionUnit Unit of measurement for the pieces.
+     * @param string $dimensionUnit Unit of measurement for the pieces
      * Valid values are CM and IN
      */
     public function setDimensionUnit($dimensionUnit)
@@ -57,7 +57,7 @@ class BkgDetails extends RequestPartial
     }
 
     /**
-     * @param string $weightUnit Unit of measurement for the shipment weight.
+     * @param string $weightUnit Unit of measurement for the shipment weight
      * Valid values are KB and LB
      */
     public function setWeightUnit($weightUnit)
@@ -76,7 +76,7 @@ class BkgDetails extends RequestPartial
     }
 
     /**
-     * @param CL\PhpDhl\Request\Partials\Piece $piece Add a single piece item to the shippment
+     * @param CL\PhpDhl\Request\Partials\Piece $piece Add a single piece item to the shipment
      */
     public function addPiece($piece)
     {

@@ -65,16 +65,7 @@ class GetQuoteRequest extends AbstractRequest
     {
         $this->required['BkgDetails'] = $bkgDetails;
         return $this;
-    }
-
-    /**
-     * @return CL\PhpDhl\Request\Partials\BkgDetails|null
-     */
-    public function getBkgDetails()
-    {
-        return $this->required['BkgDetails'];
-    }   
-
+    } 
 
     private function buildLocation($tag, $countryCode, $postalCode=null, $city=null)
     {
