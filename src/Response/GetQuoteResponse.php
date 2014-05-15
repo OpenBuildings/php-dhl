@@ -14,8 +14,7 @@ class GetQuoteResponse
 
     /**
      * A quote response can have more that one shipping option with different price rates
-     * @array
-     * @param CL\PhpDhl\Response\Partial\Price $prices
+     * @param CL\PhpDhl\Response\Partials\Price[] $prices
      */
     public function setPrices($prices) {
         $this->prices = $prices;
@@ -24,7 +23,7 @@ class GetQuoteResponse
 
     /**
      * A quote response can have more that one shipping option with different price rates
-     * @return CL\PhpDhl\Response\Partial\Price
+     * @return CL\PhpDhl\Response\Partials\Price[]
      */
     public function getPrices() {
         return $this->prices;
@@ -48,7 +47,7 @@ class GetQuoteResponse
         $prices = array();
         foreach($qtdShp as $type) {
             if ($type->TransInd == 'Y') {
-                $prices[] = new Partial\Price($type);
+                $prices[] = new Partials\Price($type);
                 $this->setPrices($prices);
             }
         }

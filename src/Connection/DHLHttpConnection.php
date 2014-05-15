@@ -2,7 +2,7 @@
 
 namespace CL\PhpDhl\Connection;
 
-use PhpDhl\Exception\DHLException;
+use PhpDhl\Exception\DHLConnectionException;
 
 /**
  * @author    Danail Kyosev <ddkyosev@gmail.com>
@@ -35,7 +35,7 @@ class DHLHttpConnection
         $response = curl_exec($ch);
 
         if ( curl_errno($ch) ) {
-            $exception = new DHLException(curl_error($ch), curl_errno($ch));
+            $exception = new DHLConnectionException(curl_error($ch), curl_errno($ch));
             curl_close($ch);
             throw $exception;
         }

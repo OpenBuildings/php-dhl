@@ -4,6 +4,7 @@ namespace CL\PhpDhl\Request;
 
 use CL\PhpDhl\XMLSerializer;
 use CL\PhpDhl\Connection\DHLHttpConnection;
+use CL\PhpDhl\Request\Partials\RequestPartial;
 
 /**
  * @author    Danail Kyosev <ddkyosev@gmail.com>
@@ -15,26 +16,23 @@ abstract class AbstractRequest
     protected $xml;
     protected $currentRoot;
 
-    public function __construct($siteID, $password)
-    {
-        $this->siteID = $siteID;
-        $this->password = $password;
+    private $siteId;
+    private $password;
 
-        // Generate the common elements
-        $this->xml = new \DOMDocument('1.0', 'UTF-8');
-        $this->xml->formatOutput = true;
-        
-        $this->buildRoot();
-        $this->buildRequestType();
-        $this->buildAuthElement($siteID, $password);
+    protected $required;
+
+    public function __construct($siteId, $password)
+    {
+        $this->siteId = $siteId;
+        $this->password = $password;
     }
 
     abstract protected function buildRoot();
     abstract protected function buildRequestType();
 
-    public function buildAuthElement($siteID, $password)
+    private function buildAuthElement()
     {
-        $data = array('ServiceHeader' => array('SiteID' => $siteID, 'Password' => $password));
+        $data = array('ServiceHeader' => array('SiteID' => $this->siteId, 'Password' => $this->password));
         $auth = $this->buildElement('Request', $data);
         $this->currentRoot->appendChild($auth);
 
@@ -43,6 +41,7 @@ abstract class AbstractRequest
 
     public function __toString()
     {
+        $this->buildRequest();
         return $this->xml->saveXML();
     }
 
@@ -53,9 +52,32 @@ abstract class AbstractRequest
 
     public function send()
     {
+        $this->buildRequest();
+
         $connection = new DHLHttpConnection();
         $result = $connection->execute($this->xml->saveXML());
 
         return $result;
+    }
+
+    public function buildRequest()
+    {
+        $this->xml = new \DOMDocument('1.0', 'UTF-8');
+        $this->xml->formatOutput = true;
+
+        $this->buildRoot()
+            ->buildRequestType()
+            ->buildAuthElement();
+
+        foreach($this->required as $key => $value) {
+            if($value instanceof RequestPartial) {
+                $element = $this->buildElement($key, $value->toArray());
+            } else {
+                $element = $this->buildElement($key, $value);
+            }
+            $this->currentRoot->appendChild($element);
+        }
+
+        return $this;
     }
 }
