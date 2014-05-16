@@ -122,7 +122,41 @@ class ShipmentRequest extends AbstractRequest
     public function buildShipmentDetails(array $pieces, $globalProductCode, $date, 
         $currencyCode, $weightUnit='K', $dimensionUnit='C')
     {
-        // TODO
+        $shipmentDetails = new Partials\ShipmentDetails();
+        $shipmentDetails->setGlobalProductCode($globalProductCode)
+            ->setDate($date)
+            ->setCurrencyCode($currencyCode)
+            ->setWeightUnit($weightUnit)
+            ->setDimensionUnit($dimensionUnit);
+
+        $pieceId = 0;
+        $weight = 0;
+        foreach ($pieces as $pieceData) {
+            $piece = new Partials\Piece();
+            $piece->setPieceId(++$pieceId)
+                ->setHeight($pieceData['height'])
+                ->setDepth($pieceData['depth'])
+                ->setWidth($pieceData['width'])
+                ->setWeight($pieceData['weight']);
+            $shipmentDetails->addPiece($piece);
+            $weight += (float) $pieceData['weight'];
+        }
+        $shipmentDetails->setNumberOfPieces($pieceId)
+            ->setWeight($weight);
+
+        return $this->setShipmentDetails($shipmentDetails);
+    }
+
+    public function buildShipper($shipperId, $companyName, $addressLine, $countryCode, $countryName)
+    {
+        $shipper = new Partials\Shipper();
+        $shipper->setShipperId($shipperId)
+            ->setCompanyName($companyName)
+            ->setAddressLine($addressLine)
+            ->setCountryCode($countryCode)
+            ->setCountryName($countryName);
+
+        return $this->setShipper($shipper);
     }
 
 }
