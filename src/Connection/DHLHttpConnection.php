@@ -2,7 +2,7 @@
 
 namespace CL\PhpDhl\Connection;
 
-use PhpDhl\Exception\DHLConnectionException;
+use CL\PhpDhl\Exception\DHLConnectionException;
 
 /**
  * @author    Danail Kyosev <ddkyosev@gmail.com>
