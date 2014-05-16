@@ -13,6 +13,7 @@ class Shipper extends RequestPartial
         'ShipperID' => null,
         'CompanyName' => null,
         'AddressLine' => null,
+        'City' => null,
         'CountryCode' => null,
         'CountryName' => null
     );
@@ -43,6 +44,16 @@ class Shipper extends RequestPartial
     public function setAddressLine($addressLine)
     {
         $this->required['AddressLine'] = $addressLine;
+
+        return $this;
+    }
+
+    /**
+     * @param string $city Company city
+     */
+    public function setCity($city)
+    {
+        $this->required['City'] = $city;
 
         return $this;
     }

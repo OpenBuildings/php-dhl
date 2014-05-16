@@ -12,6 +12,7 @@ class Consignee extends RequestPartial
     protected $required = array(
         'CompanyName' => null,
         'AddressLine' => null,
+        'City' => null,
         'CountryCode' => null,
         'CountryName' => null,
         'Contact' => null
@@ -33,6 +34,16 @@ class Consignee extends RequestPartial
     public function setAddressLine($addressLine)
     {
         $this->required['AddressLine'] = $addressLine;
+
+        return $this;
+    }
+
+    /**
+     * @param string $city Company city
+     */
+    public function setCity($city)
+    {
+        $this->required['City'] = $city;
 
         return $this;
     }

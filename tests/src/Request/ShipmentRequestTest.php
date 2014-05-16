@@ -19,9 +19,9 @@ class ShipmentRequestTest extends AbstractTestCase
         $pieces = array(array('height' => 30, 'width' => 10, 'depth' => 20, 'weight' => 5));
 
         $request->buildBilling('1234', 'S')
-            ->buildConsignee('Despark', 'Benkovski 11', 'BG', 'Bulgaria', 'Danail Kyosev', '+359000000000')
+            ->buildConsignee('Despark', 'Benkovski 11', 'Sofia', 'BG', 'Bulgaria', 'Danail Kyosev', '+359000000000')
             ->buildShipmentDetails($pieces, 'P', new \DateTime('2014-05-09'), 'EUR')
-            ->buildShipper('1234', 'Clippings', '13-19 Vine Hill', 'GB', 'United Kingdom');
+            ->buildShipper('1234', 'Clippings', '13-19 Vine Hill', 'London', 'GB', 'United Kingdom');
 
         $request->buildRequest();
 

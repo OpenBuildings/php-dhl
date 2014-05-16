@@ -113,6 +113,7 @@ class ShipmentRequest extends AbstractRequest
     public function buildConsignee(
         $companyName,
         $addressLine,
+        $city,
         $countryCode,
         $countryName,
         $contactName,
@@ -121,6 +122,7 @@ class ShipmentRequest extends AbstractRequest
         $consignee = new Partials\Consignee();
         $consignee->setCompanyName($companyName)
             ->setAddressLine($addressLine)
+            ->setCity($city)
             ->setCountryCode($countryCode)
             ->setCountryName($countryName);
 
@@ -166,12 +168,13 @@ class ShipmentRequest extends AbstractRequest
         return $this->setShipmentDetails($shipmentDetails);
     }
 
-    public function buildShipper($shipperId, $companyName, $addressLine, $countryCode, $countryName)
+    public function buildShipper($shipperId, $companyName, $addressLine, $city, $countryCode, $countryName)
     {
         $shipper = new Partials\Shipper();
         $shipper->setShipperId($shipperId)
             ->setCompanyName($companyName)
             ->setAddressLine($addressLine)
+            ->setCity($city)
             ->setCountryCode($countryCode)
             ->setCountryName($countryName);
 
