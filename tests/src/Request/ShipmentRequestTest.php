@@ -16,14 +16,16 @@ class ShipmentRequestTest extends AbstractTestCase
     {
         $request = $this->getRequest();
 
-        $billing = new Partials\Billing();
-        $billing->setShipperAccountNumber('1234')
-            ->setShippingPaymentType('S');
+        $pieces = array(array('height' => 30, 'width' => 10, 'depth' => 20, 'weight' => 5));
 
-        $request->setBilling($billing);
+        $request->buildBilling('1234', 'S')
+            ->buildConsignee('Despark', 'Benkovski 11', 'BG', 'Bulgaria', 'Danail Kyosev', '+359000000000')
+            ->buildShipmentDetails($pieces, 'P', new \DateTime('2014-05-09'), 'EUR')
+            ->buildShipper('1234', 'Clippings', '13-19 Vine Hill', 'GB', 'United Kingdom');
+
         $request->buildRequest();
 
-        //echo $request;
+        // echo $request;
         // $request = $this->buildRequest();
         // echo $request;
         // $xml = file_get_contents(dirname(__FILE__).'/../../xml/ShipmentRequest.xml');

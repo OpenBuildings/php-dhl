@@ -62,7 +62,7 @@ class Consignee extends RequestPartial
      */
     public function setContact($contact)
     {
-        $this->required['Countact'] = $contact;
+        $this->required['Contact'] = $contact;
 
         return $this;
     }
