@@ -76,8 +76,8 @@ abstract class AbstractRequest
         $this->xml->formatOutput = true;
 
         $this->buildRoot()
-            ->buildRequestType()
-            ->buildAuthElement();
+            ->buildRequestType();
+        $this->buildAuthElement();
 
         foreach ($this->required as $key => $value) {
             if ($value instanceof RequestPartial) {
