@@ -23,7 +23,8 @@ class Consignee extends RequestPartial
     public function setCompanyName($companyName)
     {
        $this->required['CompanyName'] = $companyName;
-       return $this; 
+
+       return $this;
     }
 
     /**
@@ -32,7 +33,8 @@ class Consignee extends RequestPartial
     public function setAddressLine($addressLine)
     {
        $this->required['AddressLine'] = $addressLine;
-       return $this; 
+
+       return $this;
     }
 
     /**
@@ -41,7 +43,8 @@ class Consignee extends RequestPartial
     public function setCountryCode($countryCode)
     {
        $this->required['CountryCode'] = $countryCode;
-       return $this; 
+
+       return $this;
     }
 
     /**
@@ -50,15 +53,17 @@ class Consignee extends RequestPartial
     public function setCountryName($countryName)
     {
        $this->required['CountryName'] = $countryName;
+
        return $this;
     }
 
     /**
-     * @param CL\PhpDhl\Request\Partials\Contact $contact Destination contact details
+     * @param Contact $contact Destination contact details
      */
     public function setContact($contact)
     {
        $this->required['Countact'] = $contact;
-       return $this; 
+
+       return $this;
     }
 }

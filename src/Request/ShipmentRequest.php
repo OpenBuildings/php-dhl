@@ -22,7 +22,7 @@ class ShipmentRequest extends AbstractRequest
     protected function buildRoot()
     {
         $root = $this->xml->createElementNS("http://www.dhl.com", 'req:ShipmentRequest');
-        $root->setAttributeNS('http://www.w3.org/2001/XMLSchema-instance', 'xsi:schemaLocation', 
+        $root->setAttributeNS('http://www.w3.org/2001/XMLSchema-instance', 'xsi:schemaLocation',
             'http://www.dhl.com ship-val-global-req.xsd');
         $root->setAttribute('schemaVersion', '1.0');
 
@@ -39,11 +39,12 @@ class ShipmentRequest extends AbstractRequest
 
     /**
      * @param string $regionCode Indicates the shipment to be routed to the specific region eCom backend.
-     * Valid values are AP, EU and AM.
+     *                           Valid values are AP, EU and AM.
      */
     public function setRegionCode($regionCode)
     {
         $this->required['RegionCode'] = $regionCode;
+
         return $this;
     }
 
@@ -53,42 +54,47 @@ class ShipmentRequest extends AbstractRequest
     public function setLanguageCode($languageCode)
     {
         $this->required['LanguageCode'] = $languageCode;
+
         return $this;
     }
 
     /**
-     * @param CL\PhpDhl\Request\Partials\Billing $billing Billing information of the shipment
+     * @param Partials\Billing $billing Billing information of the shipment
      */
     public function setBilling(Partials\Billing $billing)
     {
         $this->required['Billing'] = $billing;
+
         return $this;
     }
 
     /**
-     * @param CL\PhpDhl\Request\Partials\Consignee $consignee Shipment receiver information
+     * @param Partials\Consignee $consignee Shipment receiver information
      */
     public function setConsignee(Partials\Consignee $consignee)
     {
         $this->required['Consignee'] = $consignee;
+
         return $this;
     }
 
     /**
-     * @param CL\PhpDhl\Request\Partials\ShipmentDetails $shipmentDetails Shipment details
+     * @param Partials\ShipmentDetails $shipmentDetails Shipment details
      */
     public function setShipmentDetails(Partials\ShipmentDetails $shipmentDetails)
     {
         $this->required['ShipmentDetails'] = $shipmentDetails;
+
         return $this;
     }
 
     /**
-     * @param CL\PhpDhl\Request\Partials\Shipper $shipper Shipper information
+     * @param Partials\Shipper $shipper Shipper information
      */
     public function setShipper(Partials\Shipper $shipper)
     {
         $this->required['Shipper'] = $shipper;
+
         return $this;
     }
 
@@ -101,7 +107,7 @@ class ShipmentRequest extends AbstractRequest
         return $this->setBilling($billing);
     }
 
-    public function buildConsignee($companyName, $addressLine, $countryCode, $countryName, 
+    public function buildConsignee($companyName, $addressLine, $countryCode, $countryName,
         $contactName, $contactPhoneNumber)
     {
         $consignee = new Partials\Consignee();
@@ -119,7 +125,7 @@ class ShipmentRequest extends AbstractRequest
         return $this->setConsignee($consignee);
     }
 
-    public function buildShipmentDetails(array $pieces, $globalProductCode, $date, 
+    public function buildShipmentDetails(array $pieces, $globalProductCode, $date,
         $currencyCode, $weightUnit='K', $dimensionUnit='C')
     {
         $shipmentDetails = new Partials\ShipmentDetails();

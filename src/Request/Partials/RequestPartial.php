@@ -11,24 +11,25 @@ class RequestPartial
 {
     protected $required = array();
 
-    public function toArray() {     
+    public function toArray()
+    {
         return $this->convertToArray($this->required);
     }
 
-    private function convertToArray($data) 
+    private function convertToArray($data)
     {
-        $result = array();     
-        foreach($data as $key => $value) {
-            if($value instanceof RequestPartial) {                
+        $result = array();
+        foreach ($data as $key => $value) {
+            if ($value instanceof RequestPartial) {
                 $result[$key] = $value->toArray();
-            } else if (is_array($value)) {
+            } elseif (is_array($value)) {
                 $result[$key] = $this->convertToArray($value);
             } else {
                 $result[$key] = $value;
             }
         }
+
         return $result;
     }
-
 
 }

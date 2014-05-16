@@ -21,6 +21,7 @@ class Location extends RequestPartial
     public function setCountryCode($countryCode)
     {
         $this->required['CountryCode'] = $countryCode;
+
         return $this;
     }
 
@@ -30,6 +31,7 @@ class Location extends RequestPartial
     public function setPostalCode($postalCode)
     {
         $this->required['Postalcode'] = $postalCode;
+
         return $this;
     }
 
@@ -39,6 +41,7 @@ class Location extends RequestPartial
     public function setCity($city)
     {
         $this->required['City'] = $city;
+
         return $this;
     }
 }

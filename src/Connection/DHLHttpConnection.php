@@ -16,11 +16,14 @@ class DHLHttpConnection
 
     public function __construct()
     {
-        if( !function_exists("curl_init") ) {
+        if ( !function_exists("curl_init") ) {
             throw new DHLException("Curl module is not available on this system");
         }
     }
 
+    /**
+     * @param string $data
+     */
     public function execute($data)
     {
         $ch = curl_init($this->api_url);

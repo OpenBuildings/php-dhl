@@ -20,16 +20,18 @@ class Billing extends RequestPartial
     public function setShipperAccountNumber($shipperAccountNumber)
     {
        $this->required['ShipperAccountNumber'] = $shipperAccountNumber;
+
        return $this;
     }
 
     /**
      * @param string $shippingPaymentType Method of payment
-     * Valid values are S(Shipper), R(Recipient), T(Third Party/Other)
+     *                                    Valid values are S(Shipper), R(Recipient), T(Third Party/Other)
      */
     public function setShippingPaymentType($shippingPaymentType)
     {
        $this->required['ShippingPaymentType'] = $shippingPaymentType;
+
        return $this;
     }
 }

@@ -20,11 +20,12 @@ class BkgDetails extends RequestPartial
     );
 
     /**
-     * @param string $paymentCountryCode Two letter ISO country code of the payment country 
+     * @param string $paymentCountryCode Two letter ISO country code of the payment country
      */
     public function setPaymentCountryCode($paymentCountryCode)
     {
         $this->required['PaymentCountryCode'] = $paymentCountryCode;
+
         return $this;
     }
 
@@ -34,6 +35,7 @@ class BkgDetails extends RequestPartial
     public function setDate($date)
     {
         $this->required['Date'] = $date->format('Y-m-d');
+
         return $this;
     }
 
@@ -43,26 +45,29 @@ class BkgDetails extends RequestPartial
     public function setReadyTime($readyTime)
     {
         $this->required['ReadyTime'] = $readyTime;
+
         return $this;
     }
 
     /**
      * @param string $dimensionUnit Unit of measurement for the pieces
-     * Valid values are CM and IN
+     *                              Valid values are CM and IN
      */
     public function setDimensionUnit($dimensionUnit)
     {
         $this->required['DimensionUnit'] = $dimensionUnit;
+
         return $this;
     }
 
     /**
      * @param string $weightUnit Unit of measurement for the shipment weight
-     * Valid values are KB and LB
+     *                           Valid values are KB and LB
      */
     public function setWeightUnit($weightUnit)
     {
         $this->required['WeightUnit'] = $weightUnit;
+
         return $this;
     }
 
@@ -72,11 +77,12 @@ class BkgDetails extends RequestPartial
     public function setPieces($pieces)
     {
         $this->required['Pieces']['Piece'] = $pieces;
+
         return $this;
     }
 
     /**
-     * @param CL\PhpDhl\Request\Partials\Piece $piece Add a single piece item to the shipment
+     * @param Piece $piece Add a single piece item to the shipment
      */
     public function addPiece($piece)
     {
@@ -94,6 +100,7 @@ class BkgDetails extends RequestPartial
     public function setIsDutiable($isDutiable)
     {
         $this->required['IsDutiable'] = $isDutiable ? 'Y' : 'N';
+
         return $this;
     }
 }

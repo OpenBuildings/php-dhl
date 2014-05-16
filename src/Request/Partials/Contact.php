@@ -20,7 +20,8 @@ class Contact extends RequestPartial
     public function setPersonName($personName)
     {
        $this->required['PersonName'] = $personName;
-       return $this; 
+
+       return $this;
     }
 
     /**
@@ -29,6 +30,7 @@ class Contact extends RequestPartial
     public function setPhoneNumber($phoneNumber)
     {
        $this->required['PhoneNumber'] = $phoneNumber;
-       return $this; 
+
+       return $this;
     }
 }

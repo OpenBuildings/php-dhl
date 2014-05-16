@@ -42,6 +42,7 @@ abstract class AbstractRequest
     public function __toString()
     {
         $this->buildRequest();
+
         return $this->xml->saveXML();
     }
 
@@ -69,8 +70,8 @@ abstract class AbstractRequest
             ->buildRequestType()
             ->buildAuthElement();
 
-        foreach($this->required as $key => $value) {
-            if($value instanceof RequestPartial) {
+        foreach ($this->required as $key => $value) {
+            if ($value instanceof RequestPartial) {
                 $element = $this->buildElement($key, $value->toArray());
             } else {
                 $element = $this->buildElement($key, $value);

@@ -30,7 +30,7 @@ class XMLSerializer
                     $element->appendChild(self::process($doc, $key, $value));
                 }
             }
-        } else if ($data != null) {
+        } elseif ($data != null) {
             $element->appendChild($doc->createTextNode( (string) $data));
         }
 

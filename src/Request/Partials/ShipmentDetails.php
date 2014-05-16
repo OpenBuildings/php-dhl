@@ -26,6 +26,7 @@ class ShipmentDetails extends RequestPartial
     public function setNumberOfPieces($numberOfPieces)
     {
        $this->required['NumberOfPieces'] = $numberOfPieces;
+
        return $this;
     }
 
@@ -35,11 +36,12 @@ class ShipmentDetails extends RequestPartial
     public function setPieces($pieces)
     {
         $this->required['Pieces']['Piece'] = $pieces;
+
         return $this;
     }
 
     /**
-     * @param CL\PhpDhl\Request\Partials\Piece $piece Add a single piece item to the shipment
+     * @param Piece $piece Add a single piece item to the shipment
      */
     public function addPiece($piece)
     {
@@ -57,45 +59,50 @@ class ShipmentDetails extends RequestPartial
     public function setWeight($weight)
     {
        $this->required['Weight'] = $weight;
+
        return $this;
     }
 
     /**
      * @param string $weightUnit Unit of measurement for the shipment weight
-     * Valid values are K and L
+     *                           Valid values are K and L
      */
     public function setWeightUnit($weightUnit)
     {
         $this->required['WeightUnit'] = $weightUnit;
+
         return $this;
     }
 
     /**
-     * @param string $GlobalProductCode Global product code for the shipment
+     * @param string $globalProductCode Global product code for the shipment
      */
     public function setGlobalProductCode($globalProductCode)
     {
         $this->required['GlobalProductCode'] = $globalProductCode;
+
         return $this;
     }
 
     /**
      * @param DateTime $date Shipment date for when package(s) will be shipped
-     * (but usually current date). Value may range from today to ten days after
+     *                       (but usually current date). Value may range from today to ten days after
      */
     public function setDate($date)
     {
         $this->required['Date'] = $date->format('Y-m-d');
+
         return $this;
     }
 
     /**
      * @param string $dimensionUnit Unit of measurement for the pieces
-     * Valid values are C and I
+     *                              Valid values are C and I
      */
     public function setDimensionUnit($dimensionUnit)
     {
         $this->required['DimensionUnit'] = $dimensionUnit;
+
         return $this;
     }
 
@@ -105,6 +112,7 @@ class ShipmentDetails extends RequestPartial
     public function setCurrencyCode($currencyCode)
     {
         $this->required['CurrencyCode'] = $currencyCode;
+
         return $this;
     }
 }

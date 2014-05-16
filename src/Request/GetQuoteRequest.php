@@ -59,7 +59,7 @@ class GetQuoteRequest extends AbstractRequest
     }
 
     /**
-     * @param CL\PhpDhl\Request\Partials\BkgDetails $bkgDetails Shipment details
+     * @param Partials\BkgDetails $bkgDetails Shipment details
      */
     public function setBkgDetails($bkgDetails)
     {
@@ -67,6 +67,9 @@ class GetQuoteRequest extends AbstractRequest
         return $this;
     } 
 
+    /**
+     * @param string $tag
+     */
     private function buildLocation($tag, $countryCode, $postalCode=null, $city=null)
     {
         $location = new Partials\Location();

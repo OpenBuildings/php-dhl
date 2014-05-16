@@ -23,6 +23,7 @@ class Shipper extends RequestPartial
     public function setShipperId($shipperId)
     {
        $this->required['ShipperID'] = $shipperId;
+
        return $this;
     }
 
@@ -32,7 +33,8 @@ class Shipper extends RequestPartial
     public function setCompanyName($companyName)
     {
        $this->required['CompanyName'] = $companyName;
-       return $this; 
+
+       return $this;
     }
 
     /**
@@ -41,7 +43,8 @@ class Shipper extends RequestPartial
     public function setAddressLine($addressLine)
     {
        $this->required['AddressLine'] = $addressLine;
-       return $this; 
+
+       return $this;
     }
 
     /**
@@ -50,7 +53,8 @@ class Shipper extends RequestPartial
     public function setCountryCode($countryCode)
     {
        $this->required['CountryCode'] = $countryCode;
-       return $this; 
+
+       return $this;
     }
 
     /**
@@ -59,6 +63,7 @@ class Shipper extends RequestPartial
     public function setCountryName($countryName)
     {
        $this->required['CountryName'] = $countryName;
+
        return $this;
-    }    
+    }
 }

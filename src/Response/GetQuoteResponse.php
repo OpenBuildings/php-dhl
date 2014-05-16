@@ -16,8 +16,10 @@ class GetQuoteResponse
      * A quote response can have more that one shipping option with different price rates
      * @param CL\PhpDhl\Response\Partials\Price[] $prices
      */
-    public function setPrices($prices) {
+    public function setPrices($prices)
+    {
         $this->prices = $prices;
+
         return $this;
     }
 
@@ -25,12 +27,13 @@ class GetQuoteResponse
      * A quote response can have more that one shipping option with different price rates
      * @return CL\PhpDhl\Response\Partials\Price[]
      */
-    public function getPrices() {
+    public function getPrices()
+    {
         return $this->prices;
     }
 
     /**
-     * Parses a quote response XML and provides price information 
+     * Parses a quote response XML and provides price information
      * @param string $data XML response from GetQuoteRequest
      * @todo add error response handling
      */
@@ -45,7 +48,7 @@ class GetQuoteResponse
     {
         $qtdShp = $this->parsed->GetQuoteResponse->BkgDetails->QtdShp;
         $prices = array();
-        foreach($qtdShp as $type) {
+        foreach ($qtdShp as $type) {
             if ($type->TransInd == 'Y') {
                 $prices[] = new Partials\Price($type);
                 $this->setPrices($prices);
