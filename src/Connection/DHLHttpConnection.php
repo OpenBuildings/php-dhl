@@ -16,7 +16,7 @@ class DHLHttpConnection
 
     public function __construct()
     {
-        if ( !function_exists("curl_init") ) {
+        if (! function_exists("curl_init")) {
             throw new DHLException("Curl module is not available on this system");
         }
     }
@@ -37,7 +37,7 @@ class DHLHttpConnection
 
         $response = curl_exec($ch);
 
-        if ( curl_errno($ch) ) {
+        if (curl_errno($ch)) {
             $exception = new DHLConnectionException(curl_error($ch), curl_errno($ch));
             curl_close($ch);
             throw $exception;

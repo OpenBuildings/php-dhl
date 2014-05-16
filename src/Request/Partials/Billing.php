@@ -19,9 +19,9 @@ class Billing extends RequestPartial
      */
     public function setShipperAccountNumber($shipperAccountNumber)
     {
-       $this->required['ShipperAccountNumber'] = $shipperAccountNumber;
+        $this->required['ShipperAccountNumber'] = $shipperAccountNumber;
 
-       return $this;
+        return $this;
     }
 
     /**
@@ -30,8 +30,8 @@ class Billing extends RequestPartial
      */
     public function setShippingPaymentType($shippingPaymentType)
     {
-       $this->required['ShippingPaymentType'] = $shippingPaymentType;
+        $this->required['ShippingPaymentType'] = $shippingPaymentType;
 
-       return $this;
+        return $this;
     }
 }

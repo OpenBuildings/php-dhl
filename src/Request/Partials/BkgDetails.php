@@ -86,7 +86,7 @@ class BkgDetails extends RequestPartial
      */
     public function addPiece($piece)
     {
-        if ( ! isset($this->required['Pieces']['Piece'])) {
+        if (! isset($this->required['Pieces']['Piece'])) {
             $this->required['Pieces']['Piece'] = array();
         }
         $this->required['Pieces']['Piece'][] = $piece;

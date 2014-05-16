@@ -31,7 +31,7 @@ class XMLSerializer
                 }
             }
         } elseif ($data != null) {
-            $element->appendChild($doc->createTextNode( (string) $data));
+            $element->appendChild($doc->createTextNode((string) $data));
         }
 
         return $element;

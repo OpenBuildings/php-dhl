@@ -14,7 +14,7 @@ class GetQuoteResponse
 
     /**
      * A quote response can have more that one shipping option with different price rates
-     * @param CL\PhpDhl\Response\Partials\Price[] $prices
+     * @param Partials\Price[] $prices
      */
     public function setPrices($prices)
     {
@@ -25,7 +25,7 @@ class GetQuoteResponse
 
     /**
      * A quote response can have more that one shipping option with different price rates
-     * @return CL\PhpDhl\Response\Partials\Price[]
+     * @return Partials\Price[]
      */
     public function getPrices()
     {
@@ -55,5 +55,4 @@ class GetQuoteResponse
             }
         }
     }
-
 }

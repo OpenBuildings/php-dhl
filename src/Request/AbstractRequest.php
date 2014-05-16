@@ -46,7 +46,7 @@ abstract class AbstractRequest
         return $this->xml->saveXML();
     }
 
-    protected function buildElement($name, $data=null)
+    protected function buildElement($name, $data = null)
     {
         return XMLSerializer::serialize($this->xml, $name, $data);
     }

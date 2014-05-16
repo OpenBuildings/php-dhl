@@ -22,8 +22,11 @@ class ShipmentRequest extends AbstractRequest
     protected function buildRoot()
     {
         $root = $this->xml->createElementNS("http://www.dhl.com", 'req:ShipmentRequest');
-        $root->setAttributeNS('http://www.w3.org/2001/XMLSchema-instance', 'xsi:schemaLocation',
-            'http://www.dhl.com ship-val-global-req.xsd');
+        $root->setAttributeNS(
+            'http://www.w3.org/2001/XMLSchema-instance',
+            'xsi:schemaLocation',
+            'http://www.dhl.com ship-val-global-req.xsd'
+        );
         $root->setAttribute('schemaVersion', '1.0');
 
         $this->currentRoot = $this->xml->appendChild($root);
@@ -107,9 +110,14 @@ class ShipmentRequest extends AbstractRequest
         return $this->setBilling($billing);
     }
 
-    public function buildConsignee($companyName, $addressLine, $countryCode, $countryName,
-        $contactName, $contactPhoneNumber)
-    {
+    public function buildConsignee(
+        $companyName,
+        $addressLine,
+        $countryCode,
+        $countryName,
+        $contactName,
+        $contactPhoneNumber
+    ) {
         $consignee = new Partials\Consignee();
         $consignee->setCompanyName($companyName)
             ->setAddressLine($addressLine)
@@ -125,9 +133,14 @@ class ShipmentRequest extends AbstractRequest
         return $this->setConsignee($consignee);
     }
 
-    public function buildShipmentDetails(array $pieces, $globalProductCode, $date,
-        $currencyCode, $weightUnit='K', $dimensionUnit='C')
-    {
+    public function buildShipmentDetails(
+        array $pieces,
+        $globalProductCode,
+        $date,
+        $currencyCode,
+        $weightUnit = 'K',
+        $dimensionUnit = 'C'
+    ) {
         $shipmentDetails = new Partials\ShipmentDetails();
         $shipmentDetails->setGlobalProductCode($globalProductCode)
             ->setDate($date)
@@ -164,5 +177,4 @@ class ShipmentRequest extends AbstractRequest
 
         return $this->setShipper($shipper);
     }
-
 }

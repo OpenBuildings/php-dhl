@@ -18,12 +18,13 @@ class GetQuoteRequest extends AbstractRequest
     protected function buildRoot()
     {
         $root = $this->xml->createElementNS("http://www.dhl.com", 'p:DCTRequest');
-        $root->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:p1',
-            'http://www.dhl.com/datatypes');
-        $root->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:p2',
-            'http://www.dhl.com/DCTRequestdatatypes');
-        $root->setAttributeNS('http://www.w3.org/2001/XMLSchema-instance', 'xsi:schemaLocation',
-            'http://www.dhl.com DCT-req.xsd ');
+        $root->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:p1', 'http://www.dhl.com/datatypes');
+        $root->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:p2', 'http://www.dhl.com/DCTRequestdatatypes');
+        $root->setAttributeNS(
+            'http://www.w3.org/2001/XMLSchema-instance',
+            'xsi:schemaLocation',
+            'http://www.dhl.com DCT-req.xsd '
+        );
 
         $this->currentRoot = $this->xml->appendChild($root);
 
@@ -71,7 +72,7 @@ class GetQuoteRequest extends AbstractRequest
     /**
      * @param string $tag
      */
-    private function buildLocation($tag, $countryCode, $postalCode=null, $city=null)
+    private function buildLocation($tag, $countryCode, $postalCode = null, $city = null)
     {
         $location = new Partials\Location();
         $location->setCountryCode($countryCode)
@@ -83,12 +84,12 @@ class GetQuoteRequest extends AbstractRequest
         return $this->$setter($location);
     }
 
-    public function buildFrom($countryCode, $postalCode=null, $city=null)
+    public function buildFrom($countryCode, $postalCode = null, $city = null)
     {
         return $this->buildLocation('From', $countryCode, $postalCode, $city);
     }
 
-    public function buildTo($countryCode, $postalCode=null, $city=null)
+    public function buildTo($countryCode, $postalCode = null, $city = null)
     {
         return $this->buildLocation('To', $countryCode, $postalCode, $city);
     }
@@ -99,9 +100,15 @@ class GetQuoteRequest extends AbstractRequest
      * @param DateTime $date
      * @param array    $pieces             Each piece element is an array with height, width, depth and weight keys
      */
-    public function buildBkgDetails($paymentCountryCode, $date, array $pieces,
-        $readyTime='PT10H00M', $dimensionUnit='CM', $weightUnit='KG', $isDutiable = false)
-    {
+    public function buildBkgDetails(
+        $paymentCountryCode,
+        $date,
+        array $pieces,
+        $readyTime = 'PT10H00M',
+        $dimensionUnit = 'CM',
+        $weightUnit = 'KG',
+        $isDutiable = false
+    ) {
         $bkgDetails = new Partials\BkgDetails();
 
         $bkgDetails->setPaymentCountryCode($paymentCountryCode)

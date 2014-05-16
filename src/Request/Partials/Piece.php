@@ -22,9 +22,9 @@ class Piece extends RequestPartial
      */
     public function setPieceId($pieceId)
     {
-       $this->required['PieceID'] = $pieceId;
+        $this->required['PieceID'] = $pieceId;
 
-       return $this;
+        return $this;
     }
 
     /**
@@ -32,9 +32,9 @@ class Piece extends RequestPartial
      */
     public function setHeight($height)
     {
-       $this->required['Height'] = $height;
+        $this->required['Height'] = $height;
 
-       return $this;
+        return $this;
     }
 
     /**
@@ -42,9 +42,9 @@ class Piece extends RequestPartial
      */
     public function setDepth($depth)
     {
-       $this->required['Depth'] = $depth;
+        $this->required['Depth'] = $depth;
 
-       return $this;
+        return $this;
     }
 
     /**
@@ -52,9 +52,9 @@ class Piece extends RequestPartial
      */
     public function setWidth($width)
     {
-       $this->required['Width'] = $width;
+        $this->required['Width'] = $width;
 
-       return $this;
+        return $this;
     }
 
     /**
@@ -62,8 +62,8 @@ class Piece extends RequestPartial
      */
     public function setWeight($weight)
     {
-       $this->required['Weight'] = $weight;
+        $this->required['Weight'] = $weight;
 
-       return $this;
+        return $this;
     }
 }

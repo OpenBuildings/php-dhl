@@ -25,9 +25,9 @@ class ShipmentDetails extends RequestPartial
      */
     public function setNumberOfPieces($numberOfPieces)
     {
-       $this->required['NumberOfPieces'] = $numberOfPieces;
+        $this->required['NumberOfPieces'] = $numberOfPieces;
 
-       return $this;
+        return $this;
     }
 
     /**
@@ -45,7 +45,7 @@ class ShipmentDetails extends RequestPartial
      */
     public function addPiece($piece)
     {
-        if ( ! isset($this->required['Pieces']['Piece'])) {
+        if (! isset($this->required['Pieces']['Piece'])) {
             $this->required['Pieces']['Piece'] = array();
         }
         $this->required['Pieces']['Piece'][] = $piece;
@@ -58,9 +58,9 @@ class ShipmentDetails extends RequestPartial
      */
     public function setWeight($weight)
     {
-       $this->required['Weight'] = $weight;
+        $this->required['Weight'] = $weight;
 
-       return $this;
+        return $this;
     }
 
     /**

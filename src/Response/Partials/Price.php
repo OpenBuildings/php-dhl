@@ -55,5 +55,4 @@ class Price
         $this->totalAmmount = (string) $data->ShippingCharge;
         $this->totalTaxAmmount = (string) $data->TotalTaxAmount;
     }
-
 }
