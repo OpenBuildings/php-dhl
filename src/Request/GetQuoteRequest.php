@@ -2,8 +2,6 @@
 
 namespace CL\PhpDhl\Request;
 
-use CL\PhpDhl\Request\Partials;
-
 /**
  * @author    Danail Kyosev <ddkyosev@gmail.com>
  * @copyright 2014, Clippings Ltd.
@@ -20,11 +18,11 @@ class GetQuoteRequest extends AbstractRequest
     protected function buildRoot()
     {
         $root = $this->xml->createElementNS("http://www.dhl.com", 'p:DCTRequest');
-        $root->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:p1', 
+        $root->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:p1',
             'http://www.dhl.com/datatypes');
-        $root->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:p2', 
+        $root->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:p2',
             'http://www.dhl.com/DCTRequestdatatypes');
-        $root->setAttributeNS('http://www.w3.org/2001/XMLSchema-instance', 'xsi:schemaLocation', 
+        $root->setAttributeNS('http://www.w3.org/2001/XMLSchema-instance', 'xsi:schemaLocation',
             'http://www.dhl.com DCT-req.xsd ');
 
         $this->currentRoot = $this->xml->appendChild($root);
@@ -46,6 +44,7 @@ class GetQuoteRequest extends AbstractRequest
     public function setFrom($from)
     {
         $this->required['From'] = $from;
+
         return $this;
     }
 
@@ -55,6 +54,7 @@ class GetQuoteRequest extends AbstractRequest
     public function setTo($to)
     {
         $this->required['To'] = $to;
+
         return $this;
     }
 
@@ -64,8 +64,9 @@ class GetQuoteRequest extends AbstractRequest
     public function setBkgDetails($bkgDetails)
     {
         $this->required['BkgDetails'] = $bkgDetails;
+
         return $this;
-    } 
+    }
 
     /**
      * @param string $tag
@@ -78,6 +79,7 @@ class GetQuoteRequest extends AbstractRequest
             ->setCity($city);
 
         $setter = "set$tag";
+
         return $this->$setter($location);
     }
 
@@ -93,11 +95,11 @@ class GetQuoteRequest extends AbstractRequest
 
     /**
      * Add details of the shippment
-     * @param string $paymentCountryCode
+     * @param string   $paymentCountryCode
      * @param DateTime $date
-     * @param array $pieces Each piece element is an array with height, width, depth and weight keys
+     * @param array    $pieces             Each piece element is an array with height, width, depth and weight keys
      */
-    public function buildBkgDetails($paymentCountryCode, $date, array $pieces, 
+    public function buildBkgDetails($paymentCountryCode, $date, array $pieces,
         $readyTime='PT10H00M', $dimensionUnit='CM', $weightUnit='KG', $isDutiable = false)
     {
         $bkgDetails = new Partials\BkgDetails();
