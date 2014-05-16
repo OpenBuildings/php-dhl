@@ -131,5 +131,4 @@ class GetQuoteRequest extends AbstractRequest
 
         return $this->setBkgDetails($bkgDetails);
     }
-
 }

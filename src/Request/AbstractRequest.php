@@ -27,7 +27,16 @@ abstract class AbstractRequest
         $this->password = $password;
     }
 
+    /**
+     * Build the root element, specific to each request
+     * @return this
+     */
     abstract protected function buildRoot();
+
+    /**
+     * Build the request type, used for requests that have a subtype
+     * @return this
+     */
     abstract protected function buildRequestType();
 
     private function buildAuthElement()
