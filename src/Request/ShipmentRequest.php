@@ -27,7 +27,7 @@ class ShipmentRequest extends AbstractRequest
             'xsi:schemaLocation',
             'http://www.dhl.com ship-val-global-req.xsd'
         );
-        $root->setAttribute('schemaVersion', '1.0');
+        $root->setAttribute('schemaVersion', '2.0');
 
         $this->currentRoot = $this->xml->appendChild($root);
 
@@ -139,6 +139,7 @@ class ShipmentRequest extends AbstractRequest
         array $pieces,
         $globalProductCode,
         $date,
+        $contents,
         $currencyCode,
         $weightUnit = 'K',
         $dimensionUnit = 'C'
@@ -146,6 +147,7 @@ class ShipmentRequest extends AbstractRequest
         $shipmentDetails = new Partials\ShipmentDetails();
         $shipmentDetails->setGlobalProductCode($globalProductCode)
             ->setDate($date)
+            ->setContents($contents)
             ->setCurrencyCode($currencyCode)
             ->setWeightUnit($weightUnit)
             ->setDimensionUnit($dimensionUnit);
@@ -153,7 +155,7 @@ class ShipmentRequest extends AbstractRequest
         $pieceId = 0;
         $weight = 0;
         foreach ($pieces as $pieceData) {
-            $piece = new Partials\Piece();
+            $piece = new Partials\ShipmentPiece();
             $piece->setPieceId(++$pieceId)
                 ->setHeight($pieceData['height'])
                 ->setDepth($pieceData['depth'])
@@ -168,15 +170,31 @@ class ShipmentRequest extends AbstractRequest
         return $this->setShipmentDetails($shipmentDetails);
     }
 
-    public function buildShipper($shipperId, $companyName, $addressLine, $city, $countryCode, $countryName)
-    {
+    public function buildShipper(
+        $shipperId,
+        $companyName,
+        $addressLine,
+        $city,
+        $postalCode,
+        $countryCode,
+        $countryName,
+        $contactName,
+        $contactPhoneNumber
+    ) {
         $shipper = new Partials\Shipper();
         $shipper->setShipperId($shipperId)
             ->setCompanyName($companyName)
             ->setAddressLine($addressLine)
             ->setCity($city)
+            ->setPostalCode($postalCode)
             ->setCountryCode($countryCode)
             ->setCountryName($countryName);
+
+        $contact = new Partials\Contact();
+        $contact->setPersonName($contactName)
+            ->setPhoneNumber($contactPhoneNumber);
+
+        $shipper->setContact($contact);
 
         return $this->setShipper($shipper);
     }

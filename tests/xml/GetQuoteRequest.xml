@@ -3,6 +3,8 @@
   <GetQuote>
     <Request>
       <ServiceHeader>
+        <MessageTime>2014-05-09T00:00:00+00:00</MessageTime>
+        <MessageReference>random test message reference</MessageReference>
         <SiteID>CIMGBTest</SiteID>
         <Password>DLUntOcJma</Password>
       </ServiceHeader>

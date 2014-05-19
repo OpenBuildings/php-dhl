@@ -32,7 +32,7 @@ class BkgDetails extends RequestPartial
     /**
      * @param DateTime $date Pickup date of the shipment
      */
-    public function setDate($date)
+    public function setDate(\DateTime $date)
     {
         $this->required['Date'] = $date->format('Y-m-d');
 
@@ -72,7 +72,7 @@ class BkgDetails extends RequestPartial
     }
 
     /**
-     * @param CL\PhpDhl\Request\Partials\Piece[] $pieces Individual piece information of the shipment
+     * @param Piece[] $pieces Individual piece information of the shipment
      */
     public function setPieces($pieces)
     {

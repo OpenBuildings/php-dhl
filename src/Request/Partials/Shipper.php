@@ -14,8 +14,10 @@ class Shipper extends RequestPartial
         'CompanyName' => null,
         'AddressLine' => null,
         'City' => null,
+        'PostalCode' => null,
         'CountryCode' => null,
-        'CountryName' => null
+        'CountryName' => null,
+        'Contact' => null
     );
 
     /**
@@ -59,6 +61,16 @@ class Shipper extends RequestPartial
     }
 
     /**
+     * @param string $postalCode Shipper's postal code
+     */
+    public function setPostalCode($postalCode)
+    {
+        $this->required['PostalCode'] = $postalCode;
+
+        return $this;
+    }
+
+    /**
      * @param string $countryCode 2 letter ISO country code
      */
     public function setCountryCode($countryCode)
@@ -74,6 +86,16 @@ class Shipper extends RequestPartial
     public function setCountryName($countryName)
     {
         $this->required['CountryName'] = $countryName;
+
+        return $this;
+    }
+
+    /**
+     * @param Contact $contact Shipper contact details
+     */
+    public function setContact($contact)
+    {
+        $this->required['Contact'] = $contact;
 
         return $this;
     }

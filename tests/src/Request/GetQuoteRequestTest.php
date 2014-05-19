@@ -9,7 +9,12 @@ class GetQuoteRequestTest extends AbstractTestCase
 
     private function buildRequest()
     {
-        $request = new GetQuoteRequest('CIMGBTest', 'DLUntOcJma');
+        $request = new GetQuoteRequest(
+            'CIMGBTest',
+            'DLUntOcJma',
+            new \DateTime('2014-05-09'),
+            'random test message reference'
+        );
         $request->buildFrom('ID', '31251', 'PENDOPO')
             ->buildBkgDetails('ID', new \DateTime('2014-05-09'), 
                 array(array('height' => 30, 'width' => 10, 'depth' => 20, 'weight' => 1)), 'PT10H21M')
@@ -35,5 +40,7 @@ class GetQuoteRequestTest extends AbstractTestCase
         $doc = new \DOMDocument();
         $doc->formatOutput = true;
         $doc->loadXML($response);
+
+        // echo $doc->saveXML();
     }
 }

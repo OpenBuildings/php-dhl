@@ -16,6 +16,7 @@ class ShipmentDetails extends RequestPartial
         'WeightUnit' => 'K',
         'GlobalProductCode' => null,
         'Date' => null,
+        'Contents' => null,
         'DimensionUnit' => 'C',
         'CurrencyCode' => null
     );
@@ -31,7 +32,7 @@ class ShipmentDetails extends RequestPartial
     }
 
     /**
-     * @param CL\PhpDhl\Request\Partials\Piece[] $pieces Individual piece information of the shipment
+     * @param ShipmentPiece[] $pieces Individual piece information of the shipment
      */
     public function setPieces($pieces)
     {
@@ -41,7 +42,7 @@ class ShipmentDetails extends RequestPartial
     }
 
     /**
-     * @param Piece $piece Add a single piece item to the shipment
+     * @param ShipmentPiece $piece Add a single piece item to the shipment
      */
     public function addPiece($piece)
     {
@@ -91,6 +92,16 @@ class ShipmentDetails extends RequestPartial
     public function setDate($date)
     {
         $this->required['Date'] = $date->format('Y-m-d');
+
+        return $this;
+    }
+
+    /**
+     * @param string $contents  
+     */
+    public function setContents($contents)
+    {
+        $this->required['Contents'] = $contents;
 
         return $this;
     }

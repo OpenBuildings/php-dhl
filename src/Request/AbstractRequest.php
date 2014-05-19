@@ -18,13 +18,17 @@ abstract class AbstractRequest
 
     private $siteId;
     private $password;
+    private $messageTime;
+    private $messageReference;
 
     protected $required;
 
-    public function __construct($siteId, $password)
+    public function __construct($siteId, $password, $messageTime = null, $messageReference = null)
     {
         $this->siteId = $siteId;
         $this->password = $password;
+        $this->messageTime = $messageTime;
+        $this->messageReference = $messageReference;
     }
 
     /**
@@ -41,7 +45,16 @@ abstract class AbstractRequest
 
     private function buildAuthElement()
     {
-        $data = array('ServiceHeader' => array('SiteID' => $this->siteId, 'Password' => $this->password));
+        $messageTime = $this->messageTime != null ? $this->messageTime : new \DateTime('now');
+        $messageReference = $this->messageReference != null ? $this->messageReference : $this->generateRandomString();
+
+        $data = array('ServiceHeader' => array(
+            'MessageTime' => $messageTime->format('c'),
+            'MessageReference' => $messageReference,
+            'SiteID' => $this->siteId, 
+            'Password' => $this->password
+        ));
+
         $auth = $this->buildElement('Request', $data);
         $this->currentRoot->appendChild($auth);
 
@@ -89,5 +102,14 @@ abstract class AbstractRequest
         }
 
         return $this;
+    }
+
+    function generateRandomString($length = 28) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, strlen($characters) - 1)];
+        }
+        return $randomString;
     }
 }

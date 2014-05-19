@@ -18,10 +18,27 @@ class ShipmentRequestTest extends AbstractTestCase
 
         $pieces = array(array('height' => 30, 'width' => 10, 'depth' => 20, 'weight' => 5));
 
-        $request->buildBilling('1234', 'S')
-            ->buildConsignee('Despark', 'Benkovski 11', 'Sofia', 'BG', 'Bulgaria', 'Danail Kyosev', '+359000000000')
-            ->buildShipmentDetails($pieces, 'P', new \DateTime('2014-05-09'), 'EUR')
-            ->buildShipper('1234', 'Clippings', '13-19 Vine Hill', 'London', 'GB', 'United Kingdom');
+        $request->buildBilling('187544124', 'S')
+            ->buildConsignee('DHL Express International',
+                '178-188 Great South West Road',
+                'Hounslow',
+                'GB',
+                'United Kingdom',
+                'Danail Kyosev',
+                '+359000000000'
+            )
+            ->buildShipmentDetails($pieces, 'D', new \DateTime('2014-05-19'), 'Test contents', 'EUR')
+            ->buildShipper(
+                '187544124',
+                'Clippings',
+                '13-19 Vine Hill',
+                'London',
+                'EC1R 5DW',
+                'GB',
+                'United Kingdom',
+                'Danail Kyosev',
+                '+359000000000'
+            );
 
         $request->buildRequest();
 
