@@ -51,7 +51,7 @@ abstract class AbstractRequest
         $data = array('ServiceHeader' => array(
             'MessageTime' => $messageTime->format('c'),
             'MessageReference' => $messageReference,
-            'SiteID' => $this->siteId, 
+            'SiteID' => $this->siteId,
             'Password' => $this->password
         ));
 
@@ -104,12 +104,14 @@ abstract class AbstractRequest
         return $this;
     }
 
-    function generateRandomString($length = 28) {
+    public function generateRandomString($length = 28)
+    {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $randomString = '';
         for ($i = 0; $i < $length; $i++) {
             $randomString .= $characters[rand(0, strlen($characters) - 1)];
         }
+
         return $randomString;
     }
 }

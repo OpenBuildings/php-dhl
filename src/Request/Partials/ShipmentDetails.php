@@ -97,7 +97,7 @@ class ShipmentDetails extends RequestPartial
     }
 
     /**
-     * @param string $contents  
+     * @param string $contents
      */
     public function setContents($contents)
     {

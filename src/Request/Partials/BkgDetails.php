@@ -30,7 +30,7 @@ class BkgDetails extends RequestPartial
     }
 
     /**
-     * @param DateTime $date Pickup date of the shipment
+     * @param \DateTime $date Pickup date of the shipment
      */
     public function setDate(\DateTime $date)
     {
