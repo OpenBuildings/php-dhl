@@ -13,6 +13,7 @@ class Consignee extends RequestPartial
         'CompanyName' => null,
         'AddressLine' => null,
         'City' => null,
+        'PostalCode' => null,
         'CountryCode' => null,
         'CountryName' => null,
         'Contact' => null
@@ -49,6 +50,16 @@ class Consignee extends RequestPartial
     }
 
     /**
+     * @param string $postalCode Receiver's postal code
+     */
+    public function setPostalCode($postalCode)
+    {
+        $this->required['PostalCode'] = $postalCode;
+
+        return $this;
+    }
+
+    /**
      * @param string $countryCode 2 letter ISO country code
      */
     public function setCountryCode($countryCode)
@@ -71,7 +82,7 @@ class Consignee extends RequestPartial
     /**
      * @param Contact $contact Destination contact details
      */
-    public function setContact($contact)
+    public function setContact(Contact $contact)
     {
         $this->required['Contact'] = $contact;
 

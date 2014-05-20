@@ -114,6 +114,7 @@ class ShipmentRequest extends AbstractRequest
         $companyName,
         $addressLine,
         $city,
+        $postalCode,
         $countryCode,
         $countryName,
         $contactName,
@@ -123,6 +124,7 @@ class ShipmentRequest extends AbstractRequest
         $consignee->setCompanyName($companyName)
             ->setAddressLine($addressLine)
             ->setCity($city)
+            ->setPostalCode($postalCode)
             ->setCountryCode($countryCode)
             ->setCountryName($countryName);
 
@@ -138,6 +140,7 @@ class ShipmentRequest extends AbstractRequest
     public function buildShipmentDetails(
         array $pieces,
         $globalProductCode,
+        $localProductCode,
         $date,
         $contents,
         $currencyCode,
@@ -146,6 +149,7 @@ class ShipmentRequest extends AbstractRequest
     ) {
         $shipmentDetails = new Partials\ShipmentDetails();
         $shipmentDetails->setGlobalProductCode($globalProductCode)
+            ->setLocalProductCode($localProductCode)
             ->setDate($date)
             ->setContents($contents)
             ->setCurrencyCode($currencyCode)

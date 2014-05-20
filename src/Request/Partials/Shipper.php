@@ -93,7 +93,7 @@ class Shipper extends RequestPartial
     /**
      * @param Contact $contact Shipper contact details
      */
-    public function setContact($contact)
+    public function setContact(Contact $contact)
     {
         $this->required['Contact'] = $contact;
 

@@ -7,14 +7,9 @@ use CL\PhpDhl\Request\Partials;
 
 class ShipmentRequestTest extends AbstractTestCase
 {
-    private function getRequest()
+    private function buildRequest()
     {
-        return new ShipmentRequest('CIMGBTest', 'DLUntOcJma');
-    }
-
-    public function testXML()
-    {
-        $request = $this->getRequest();
+        $request = new ShipmentRequest('CIMGBTest', 'DLUntOcJma');
 
         $pieces = array(array('height' => 30, 'width' => 10, 'depth' => 20, 'weight' => 5));
 
@@ -22,12 +17,13 @@ class ShipmentRequestTest extends AbstractTestCase
             ->buildConsignee('DHL Express International',
                 '178-188 Great South West Road',
                 'Hounslow',
+                'TW4 6JS',
                 'GB',
                 'United Kingdom',
                 'Danail Kyosev',
                 '+359000000000'
             )
-            ->buildShipmentDetails($pieces, 'D', new \DateTime('2014-05-19'), 'Test contents', 'EUR')
+            ->buildShipmentDetails($pieces, '1', 'V', new \DateTime('now'), 'Test contents', 'GBP')
             ->buildShipper(
                 '187544124',
                 'Clippings',
@@ -42,11 +38,29 @@ class ShipmentRequestTest extends AbstractTestCase
 
         $request->buildRequest();
 
-        // echo $request;
-        // $request = $this->buildRequest();
+        return $request;
+    }
+
+    public function testXML()
+    {
+        $request = $this->buildRequest();
+
         // echo $request;
         // $xml = file_get_contents(dirname(__FILE__).'/../../xml/ShipmentRequest.xml');
 
         // $this->assertEquals($xml, (string) $request);
+    }
+
+    public function testSend()
+    {
+        $request = $this->buildRequest();
+
+        $response = $request->send();
+
+        $doc = new \DOMDocument();
+        $doc->formatOutput = true;
+        $doc->loadXML($response);
+
+        // echo $doc->saveXML();
     }
 }

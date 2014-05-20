@@ -15,6 +15,7 @@ class ShipmentDetails extends RequestPartial
         'Weight' => 0,
         'WeightUnit' => 'K',
         'GlobalProductCode' => null,
+        'LocalProductCode' => null,
         'Date' => null,
         'Contents' => null,
         'DimensionUnit' => 'C',
@@ -34,7 +35,7 @@ class ShipmentDetails extends RequestPartial
     /**
      * @param ShipmentPiece[] $pieces Individual piece information of the shipment
      */
-    public function setPieces($pieces)
+    public function setPieces(array $pieces)
     {
         $this->required['Pieces']['Piece'] = $pieces;
 
@@ -44,7 +45,7 @@ class ShipmentDetails extends RequestPartial
     /**
      * @param ShipmentPiece $piece Add a single piece item to the shipment
      */
-    public function addPiece($piece)
+    public function addPiece(ShipmentPiece $piece)
     {
         if (! isset($this->required['Pieces']['Piece'])) {
             $this->required['Pieces']['Piece'] = array();
@@ -86,10 +87,20 @@ class ShipmentDetails extends RequestPartial
     }
 
     /**
-     * @param DateTime $date Shipment date for when package(s) will be shipped
+     * @param string $localProductCode Local product code for the shipment
+     */
+    public function setLocalProductCode($localProductCode)
+    {
+        $this->required['LocalProductCode'] = $localProductCode;
+
+        return $this;
+    }
+
+    /**
+     * @param /DateTime $date Shipment date for when package(s) will be shipped
      *                       (but usually current date). Value may range from today to ten days after
      */
-    public function setDate($date)
+    public function setDate(\DateTime $date)
     {
         $this->required['Date'] = $date->format('Y-m-d');
 
